@@ -15,34 +15,6 @@ React-Dev 🚀
   -links
   -company-name
   \*/ -->
-The project is implemented with some amazing features:
-- It uses Parcel behind the Scene. which provide some amazing features like
-      - bundling
-      - hot module replacement
-      - creates local server
-      - minification, to make production ready application
-      - Error Handling(better error look)
-      - Tree shaking - to remove unused code
-      - automatic page reloading
-- Components break-up.
-- Component Reusability
-- Routing
-- Breaks the CORS
-- optimizing the app through,
-     - single responsibility principle
-     - custom hooks
-     - lazy load
-- uses the Shimmer effect to show while the data is being fetched.
-
-Here is project built in react without using a some amazing features of react 16 and ES6, it is robust webapp containing most of the amazing react features such as, Single Page Application, Hooks, Custom Hooks, follow a Single Responsibility Principle, lazy Loading aka code Splitting and uses parcel behind the scenes. 
-
-The web app is about ordering food online, where there are restaurant cards and each card represent a single resataurant, on clicking the restaurant page redirects to the single component showing the list of available food items to deliver. In it I implemented Fetching of live data from swiggy API, and break the Cross-Origin Resource Sharing with CORS chrome Extention, It implements some amazing feature of code reusablity, implemented custom hooks, to seperate the logic of Fetching data from API. 
-
-It has Routing features to route through different components, giving an impression of multipage but achieving Single page functionality, built on good industry followed practices.
-
-
-
-
 
 
 how to resolve git error:
