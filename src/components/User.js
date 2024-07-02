@@ -19,7 +19,7 @@ const User = ({ name, location }) => {
       <h2>Count: {count}</h2>
       <h2>Name : {name}</h2>
       <h3>Location: {location}</h3>
-      <h4>ID: Nikitakesh@gamil.com</h4>
+      <h4>ID: nikitakesh@gamil.com</h4>
     </div>
   );
 };

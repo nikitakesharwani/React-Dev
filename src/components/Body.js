@@ -28,23 +28,20 @@ const Body = () => {
 
       const json = await response.json();
 
-      let restList =
-        json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
-          ?.restaurants;
-
-      console.log(
+      setRestaurantList(
         json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
           ?.restaurants
       );
-
-      setRestaurantList(restList);
-      setFilteredRestaurant(restList);
+      setFilteredRestaurant(
+        json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants
+      );
     } catch (error) {
       console.error(error);
       // Handle the error gracefully, e.g., display an error message to the user
     }
   };
-  console.log("Body Rendered");
+
 
   const onlineStatus = useOnlineStatus();
 
@@ -54,15 +51,18 @@ const Body = () => {
   return restaurantList.length === null ? (
     <Shimmer />
   ) : (
-    <div className="rest-container">
+    <div className="search-box px-5 m-3">
       <input
         type="text"
+        placeholder="  Search"
+        className="border border-solid border-black m-3 rounded-md focus:ring-2"
         value={searchText}
         onChange={(e) => {
           setSearchText(e.target.value);
         }}
       />
       <button
+        className="p-2 mx-2 bg-blue-900 text-cyan-100 rounded-md"
         onClick={() => {
           let filteredRest = restaurantList.filter((res) =>
             res.info.name.toLowerCase().includes(searchText)
@@ -75,7 +75,7 @@ const Body = () => {
       </button>
 
       <button
-        className="rest-btn"
+        className="p-2 bg-gray-400 text-cyan-100 rounded-md"
         onClick={() => {
           const updatedRestList = restaurantList.filter(
             (restaurantLi) => restaurantLi.rating > 4.0
@@ -87,7 +87,7 @@ const Body = () => {
         Top Rated Restaurants
       </button>
 
-      <div className="rest-card-container">
+      <div className="flex flex-wrap">
         {filteredRestaurant.map((restaurant) => (
           <Link
             key={restaurant.info.id}
