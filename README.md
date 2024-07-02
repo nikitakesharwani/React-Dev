@@ -16,6 +16,7 @@ React-Dev 🚀
   -company-name
   \*/ -->
 
+
 how to resolve git error:
 
 Error-1
