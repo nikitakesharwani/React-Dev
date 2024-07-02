@@ -1,13 +1,17 @@
+import UserContext from "../utils/UserContext";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
+import Error from "./Error";
 
 const Body = () => {
   const [restaurantList, setRestaurantList] = useState([]); //restaurantList is used to persorm the filter on click of search button in line 60
   const [filteredRestaurant, setFilteredRestaurant] = useState([]); //this is updating the res-card with filtered cards
   const [searchText, setSearchText] = useState("");
+  //useContext
+  const { setUserName, loggedIn } = useContext(UserContext);
 
   useEffect(() => {
     fetchData();
@@ -41,7 +45,6 @@ const Body = () => {
       // Handle the error gracefully, e.g., display an error message to the user
     }
   };
-
 
   const onlineStatus = useOnlineStatus();
 
@@ -86,6 +89,17 @@ const Body = () => {
       >
         Top Rated Restaurants
       </button>
+      {/* //useContext */}
+      <div>
+        <input
+          className="border border-solid border-black m-3 rounded-md focus:ring-2"
+          type="text"
+          value={loggedIn}
+          onChange={(e) => {
+            setUserName(e.target.value);
+          }}
+        />
+      </div>
 
       <div className="flex flex-wrap">
         {filteredRestaurant.map((restaurant) => (
